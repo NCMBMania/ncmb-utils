@@ -1,7 +1,6 @@
-const fetchEvery = function() {
+const fetchEvery = function(data) {
   return new Promise((res, rej) => {
-    const count = this;
-    const me = this;
+    const count = data;
     count
       .count()
       .fetchAll()
@@ -9,7 +8,7 @@ const fetchEvery = function() {
         const max = Math.ceil(count.count) / 1000;
         const promises = [];
         for (let i = 0; i < max; i += 1) {
-          promises.push(me
+          promises.push(data
             .limit(1000)
             .skip(i * 1000)
             .fetchAll());
